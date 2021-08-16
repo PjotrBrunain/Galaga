@@ -13,7 +13,6 @@
 #include "GameObject.h"
 #include "Scene.h"
 #include "TextComponent.h"
-#include "TestCommand.h"
 
 using namespace std;
 using namespace std::chrono;

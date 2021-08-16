@@ -8,7 +8,6 @@
 #include "FPSComponent.h"
 #include "InputManager.h"
 #include "SceneManager.h"
-#include "TestCommand.h"
 #include "TextComponent.h"
 #include "TextureComponent.h"
 #include "GameObject.h"

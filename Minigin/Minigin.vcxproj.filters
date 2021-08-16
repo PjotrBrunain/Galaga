@@ -14,6 +14,12 @@
     <Filter Include="SDL">
       <UniqueIdentifier>{2e5595b5-e66e-4af8-afaa-3ec93a367670}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{5f6ab1aa-5588-4100-b21a-bbdb9efbf867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseClasses">
+      <UniqueIdentifier>{a0266e5b-1073-4674-a39b-0552ff812ef6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextureComponent.h">
@@ -31,28 +37,10 @@
     <ClInclude Include="Renderer.h">
       <Filter>SDL</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="InputManager.h">
-      <Filter>Base</Filter>
-    </ClInclude>
     <ClInclude Include="Stream-Engine.h">
       <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="MiniginPCH.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.h">
       <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
@@ -64,11 +52,32 @@
     <ClInclude Include="FPSComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
-      <Filter>Base</Filter>
+    <ClInclude Include="InputManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
-    <ClInclude Include="TestCommand.h">
-      <Filter>Base</Filter>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ObserverManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>BaseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>BaseClasses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,12 +96,6 @@
     <ClCompile Include="Texture2D.cpp">
       <Filter>SDL</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="InputManager.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Base</Filter>
     </ClCompile>
@@ -100,15 +103,6 @@
       <Filter>Base</Filter>
     </ClCompile>
     <ClCompile Include="MiniginPCH.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
       <Filter>Base</Filter>
     </ClCompile>
     <ClCompile Include="Transform.cpp">
@@ -119,6 +113,24 @@
     </ClCompile>
     <ClCompile Include="FPSComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ObserverManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>BaseClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>BaseClasses</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
