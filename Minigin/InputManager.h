@@ -33,6 +33,8 @@ namespace StreamEngine
 		std::vector<FlexibleCommand> m_Commands{};
 		WORD m_LastButtons{};
 		int m_AmountOfPlayers{ 1 };
+
+		bool m_UsesThumbSticks{};
 	};
 
 }

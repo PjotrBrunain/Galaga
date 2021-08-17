@@ -8,16 +8,12 @@
 #include "ResourceManager.h"
 #include <SDL.h>
 
-#include "FPSComponent.h"
 #include "TextureComponent.h"
-#include "GameObject.h"
-#include "Scene.h"
-#include "TextComponent.h"
 
 using namespace std;
 using namespace std::chrono;
 
-void StreamEngine::Streamgin::Initialize()
+void StreamEngine::Streamgin::Initialize(const int width, const int height)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	{
@@ -28,8 +24,8 @@ void StreamEngine::Streamgin::Initialize()
 		"Programming 4 assignment",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
-		760,
-		640,
+		width,
+		height,
 		SDL_WINDOW_OPENGL
 	);
 	if (m_Window == nullptr)
@@ -43,68 +39,9 @@ void StreamEngine::Streamgin::Initialize()
 /**
  * Code constructing the scene world starts here
  */
-void StreamEngine::Streamgin::LoadGame(const std::function<void()>& loadFunction) const
+void StreamEngine::Streamgin::LoadGame(const std::function<void()>& loadFunction)
 {
 	loadFunction();
-	//auto& scene = SceneManager::GetInstance().CreateScene("Demo");
-
-	//shared_ptr<GameObject> background{ std::make_shared<GameObject>() };
-
-	//background->AddComponent(std::make_shared<TextureComponent>("background.jpg", background));
-
-	//scene.Add(background);
-
-	//shared_ptr<GameObject> logo{ std::make_shared<GameObject>() };
-
-	//logo->AddComponent(std::make_shared<TextureComponent>("logo.png", logo));
-	//logo->GetTransform().SetPosition(216, 180, 0);
-
-	//scene.Add(logo);
-
-	//shared_ptr<GameObject> text{ std::make_shared<GameObject>() };
-
-	//text->AddComponent(std::make_shared<TextComponent>("Lingua.otf", text));
-
-	//text->GetTransform().SetPosition(80, 20, 0);
-
-	//text->GetComponent<TextComponent>()->SetText("Programming 4 Assignment");
-
-	//text->GetComponent<TextComponent>()->SetSize(36);
-
-	//scene.Add(text);
-
-
-	//shared_ptr<GameObject> fpsCounter{ std::make_shared<GameObject>() };
-
-	//std::shared_ptr<TextComponent> pTxtComponent{ std::make_shared<TextComponent>("Lingua.otf",fpsCounter) };
-	//pTxtComponent->SetSize(26);
-	//pTxtComponent->SetColor({ 0,255,0,255 });
-	//const std::shared_ptr<FPSComponent> pFPSComponent{ std::make_shared<FPSComponent>(fpsCounter) };
-	//pTxtComponent->LinkText(pFPSComponent->GetTextLink());
-	//pTxtComponent->SetDoUpdate(true);
-
-	//fpsCounter->AddComponent(pTxtComponent);
-	//fpsCounter->AddComponent(pFPSComponent);
-
-	//fpsCounter->GetTransform().SetPosition(0, 0, 0);
-
-	//scene.Add(fpsCounter);
-
-	//InputManager::GetInstance().SetCommand(FlexibleCommand{ std::make_shared<TestCommand>(), true, ControllerButton::ButtonA });
-	
-	//auto go = std::make_shared<StreamEngine::GameObject>();
-	//go->SetTexture("background.jpg");
-	//scene.Add(go);
-
-	//go = std::make_shared<StreamEngine::GameObject>();
-	//go->SetTexture("logo.png");
-	//go->SetPosition(216, 180);
-	//scene.Add(go);
-
-	//auto font = ResourceManager::GetInstance().LoadFont("Lingua.otf", 36);
-	//auto to = std::make_shared<TextObject>("Programming 4 Assignment", font);
-	//to->SetPosition(80, 20);
-	//scene.Add(to);
 }
 
 void StreamEngine::Streamgin::Cleanup()
@@ -115,12 +52,13 @@ void StreamEngine::Streamgin::Cleanup()
 	SDL_Quit();
 }
 
-void StreamEngine::Streamgin::Run(const std::function<void()>& loadFunction)
+void StreamEngine::Streamgin::Run(const std::function<void()>& loadFunction, const int width, const int height)
 {
-	Initialize();
+	Initialize(width, height);
 
 	// tell the resource manager where he can find the game data
 	ResourceManager::GetInstance().Init("../Data/");
+
 
 	LoadGame(loadFunction);
 
@@ -132,7 +70,7 @@ void StreamEngine::Streamgin::Run(const std::function<void()>& loadFunction)
 		bool doContinue = true;
 		auto lastTime = high_resolution_clock::now();
 		float lag = 0.0f;
-		while (doContinue)
+		while (doContinue)  // NOLINT(bugprone-infinite-loop)
 		{
 			const auto currentTime = high_resolution_clock::now();
 			const float deltaTime = duration<float, std::milli>(currentTime - lastTime).count();

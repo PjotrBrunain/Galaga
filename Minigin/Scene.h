@@ -8,7 +8,7 @@ namespace StreamEngine
 	class GameObject;
 	class Scene
 	{
-		friend Scene& SceneManager::CreateScene(const std::string& name);
+		friend std::shared_ptr<Scene>& SceneManager::CreateScene(const std::string& name);
 	public:
 		explicit Scene(const std::string& name);
 

@@ -9,7 +9,7 @@ namespace StreamEngine
 	class SceneManager final : public Singleton<SceneManager>
 	{
 	public:
-		Scene& CreateScene(const std::string& name);
+		std::shared_ptr<Scene>& CreateScene(const std::string& name);
 
 		void Update(const float deltaTime);
 		void FixedUpdate(const float deltaTime);

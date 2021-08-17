@@ -11,6 +11,7 @@
 #include "TextComponent.h"
 #include "TextureComponent.h"
 #include "GameObject.h"
+#include "PlayerPrefab.h"
 #include "Scene.h"
 
 inline void testLoadFunction()
@@ -21,14 +22,14 @@ inline void testLoadFunction()
 
 	background->AddComponent(std::make_shared<StreamEngine::TextureComponent>("background.jpg", background));
 
-	scene.Add(background);
+	scene->Add(background);
 
 	std::shared_ptr<StreamEngine::GameObject> logo{ std::make_shared<StreamEngine::GameObject>() };
 
 	logo->AddComponent(std::make_shared<StreamEngine::TextureComponent>("logo.png", logo));
 	logo->GetTransform().SetPosition(216, 180, 0);
 
-	scene.Add(logo);
+	scene->Add(logo);
 
 	std::shared_ptr<StreamEngine::GameObject> text{ std::make_shared<StreamEngine::GameObject>() };
 
@@ -40,7 +41,7 @@ inline void testLoadFunction()
 
 	text->GetComponent<StreamEngine::TextComponent>()->SetSize(36);
 
-	scene.Add(text);
+	scene->Add(text);
 
 
 	std::shared_ptr<StreamEngine::GameObject> fpsCounter{ std::make_shared<StreamEngine::GameObject>() };
@@ -57,8 +58,15 @@ inline void testLoadFunction()
 
 	fpsCounter->GetTransform().SetPosition(0, 0, 0);
 
-	scene.Add(fpsCounter);
+	scene->Add(fpsCounter);
 
+	constexpr float playerSize{ 64 };
+	constexpr float margin{ 5 };
+
+	CreatePlayer(scene, 1, glm::vec3{GameInstance::GetInstance().GetScreenMinX() + margin,
+		GameInstance::GetInstance().GetScreenMinY() + GameInstance::GetInstance().GetScreenHeight() - playerSize - margin,
+		1},
+		playerSize);
 
 	StreamEngine::SceneManager::GetInstance().SetActiveScene("Demo");
 }

@@ -36,9 +36,9 @@ void StreamEngine::SceneManager::SetActiveScene(std::string name)
 	}
 }
 
-StreamEngine::Scene& StreamEngine::SceneManager::CreateScene(const std::string& name)
+std::shared_ptr<StreamEngine::Scene>& StreamEngine::SceneManager::CreateScene(const std::string& name)
 {
-	const auto scene = std::shared_ptr<Scene>(std::make_shared<Scene>(name));
+	auto scene = std::shared_ptr<Scene>(std::make_shared<Scene>(name));
 	m_Scenes.insert(std::make_pair(name, scene));
-	return *scene.get();
+	return m_Scenes[name];
 }

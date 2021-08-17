@@ -1,27 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{4387388e-202b-43c8-b577-8c2c23f9e9f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Player">
+      <UniqueIdentifier>{4aebb8cc-8bdc-4179-8161-fd7dfe2017b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Components">
+      <UniqueIdentifier>{b65d905c-a7df-46fa-b4cd-f09043b87349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\Commands">
+      <UniqueIdentifier>{0cbcc64c-5c0b-4526-b25b-80477213c16c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Galaga-Game.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteTextureComponent.cpp">
+      <Filter>Base\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInstance.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveLeft.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveRight.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Shoot.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Base\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadFunction.h">
-      <Filter>Header Files</Filter>
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPrefab.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteTextureComponent.h">
+      <Filter>Base\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Structs.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInstance.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="Shoot.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveLeft.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveRight.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Base\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

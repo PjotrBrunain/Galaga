@@ -180,9 +180,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Galaga-Game.cpp" />
+    <ClCompile Include="GameInstance.cpp" />
+    <ClCompile Include="MoveLeft.cpp" />
+    <ClCompile Include="MoveRight.cpp" />
+    <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="Shoot.cpp" />
+    <ClCompile Include="SpriteTextureComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="GameInstance.h" />
     <ClInclude Include="LoadFunction.h" />
+    <ClInclude Include="MoveLeft.h" />
+    <ClInclude Include="MoveRight.h" />
+    <ClInclude Include="Controller.h" />
+    <ClInclude Include="PlayerPrefab.h" />
+    <ClInclude Include="Shoot.h" />
+    <ClInclude Include="SpriteTextureComponent.h" />
+    <ClInclude Include="Structs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

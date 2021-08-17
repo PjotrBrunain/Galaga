@@ -72,7 +72,7 @@ bool StreamEngine::InputManager::ProcessInput()
 		const DWORD dwResult = XInputGetState(0, &m_CurrentState);
 		if (dwResult == ERROR_SUCCESS)
 		{
-			if (m_CurrentState.Gamepad.wButtons != m_LastButtons)
+			//if (m_CurrentState.Gamepad.wButtons != m_LastButtons)
 			{
 				auto buttonLambda = [this](const FlexibleCommand& button)
 				{
@@ -112,6 +112,7 @@ bool StreamEngine::InputManager::ProcessInput()
 				//}
 				m_LastButtons = m_CurrentState.Gamepad.wButtons;
 			}
+
 		}
 	}
 
@@ -120,30 +121,6 @@ bool StreamEngine::InputManager::ProcessInput()
 
 bool StreamEngine::InputManager::IsPressed(const DWORD& button) const
 {
-	//switch (button)
-	//{
-	//case ControllerButton::ButtonA:
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_A;
-	//case ControllerButton::ButtonB:
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_B;
-	//case ControllerButton::ButtonX:
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_X;
-	//case ControllerButton::ButtonY:
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_Y;
-	//case ControllerButton::ButtonStart:
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_START;
-	//case ControllerButton::ButtonBack: 
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_BACK;
-	//case ControllerButton::ButtonDpadUp: 
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP;
-	//case ControllerButton::ButtonDpadDown: 
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN;
-	//case ControllerButton::ButtonDpadLeft: 
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT;
-	//case ControllerButton::ButtonDpadRight: 
-	//	return m_CurrentState.Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT;
-	//default: return false;
-	//}
 	return m_CurrentState.Gamepad.wButtons & button;
 }
 
