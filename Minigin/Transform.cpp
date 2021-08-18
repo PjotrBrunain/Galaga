@@ -2,11 +2,7 @@
 #include "Transform.h"
 
 StreamEngine::Transform::Transform(std::weak_ptr<GameObject> pOwningGameObject)
-	:BaseComponent(false, pOwningGameObject)
-{
-}
-
-StreamEngine::Transform::~Transform()
+	: BaseComponent(false, pOwningGameObject), m_Height(0), m_Width(0)
 {
 }
 

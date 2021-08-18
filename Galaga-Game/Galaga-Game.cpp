@@ -15,6 +15,6 @@ int main(int, char*[])
     StreamEngine::Streamgin engine{};
     GameInstance::GetInstance().SetScreenHeight(screenHeight);
     GameInstance::GetInstance().SetScreenWidth(screenWidth);
-    engine.Run(testLoadFunction, screenWidth, screenHeight);
+    engine.Run(TestLoadFunction, screenWidth, screenHeight);
     return 0;
 }

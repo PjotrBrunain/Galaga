@@ -16,13 +16,12 @@ StreamEngine::TextComponent::TextComponent(std::weak_ptr<GameObject> pOwningGame
 	m_Color{ 255,255,255,255 },
 	m_pText{ std::make_shared<std::string>("SampleText") },
 	m_Size{ 20 },
-	m_UpdateText(false),
-	m_FontPath()
+	m_UpdateText(false)
 {
 	
 }
 
-StreamEngine::TextComponent::TextComponent(const std::string& fontPath, std::weak_ptr<GameObject> pOwningGameObject)
+StreamEngine::TextComponent::TextComponent(const std::string& fontPath, std::weak_ptr<GameObject> pOwningGameObject)  // NOLINT(cppcoreguidelines-pro-type-member-init)
 	:TextComponent(pOwningGameObject)
 {
 	m_FontPath = fontPath;
@@ -34,23 +33,21 @@ StreamEngine::TextComponent::TextComponent(const std::string& fontPath, std::wea
 	CreateTextTexture();
 }
 
-StreamEngine::TextComponent::~TextComponent()
-{
-}
-
 void StreamEngine::TextComponent::Render() const
 {
 	Renderer::GetInstance().RenderTexture(*m_pTexture.get(), m_pOwningGameObject.lock()->GetTransform().GetPosition().x, m_pOwningGameObject.lock()->GetTransform().GetPosition().y);
 }
 
+#pragma warning (push)
+#pragma warning (disable:4100)
 void StreamEngine::TextComponent::Update(float deltaTime)
 {
-	deltaTime = deltaTime;
 	if (m_UpdateText)
 	{
 		CreateTextTexture();
 	}
 }
+#pragma warning (pop)
 
 void StreamEngine::TextComponent::SetText(const std::string& text)
 {

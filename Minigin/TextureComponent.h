@@ -10,7 +10,7 @@ namespace StreamEngine
 	{
 	public:
 		TextureComponent(const std::string& texturePath, std::weak_ptr<GameObject> pOwningGameObject);
-		virtual ~TextureComponent();
+		virtual ~TextureComponent() = default;
 
 		//void Update(float deltaTime) override;
 		//void FixedUpdate(float deltaTime) override;

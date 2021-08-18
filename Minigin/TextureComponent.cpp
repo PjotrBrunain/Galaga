@@ -10,17 +10,7 @@ StreamEngine::TextureComponent::TextureComponent(const std::string& texturePath,
 	:BaseComponent(true, pOwningGameObject),
 	m_pTexture(nullptr)
 {
-#if _DEBUG
-	//std::cout << "TextureComp constructed\n";
-#endif
 	m_pTexture = ResourceManager::GetInstance().LoadTexture(texturePath);
-}
-
-StreamEngine::TextureComponent::~TextureComponent()
-{
-#if _DEBUG
-	//std::cout << "TextureComp destructed\n";
-#endif
 }
 
 void StreamEngine::TextureComponent::Render() const

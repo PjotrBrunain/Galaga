@@ -12,5 +12,10 @@ namespace StreamEngine
 		virtual ~Observer() = default;
 
 		virtual void OnNotify(const std::shared_ptr<GameObject>& pEntity, int event) = 0;
+
+		Observer(const Observer&) = delete;
+		Observer(Observer&&) noexcept = delete;
+		Observer& operator=(const Observer&) = delete;
+		Observer& operator=(Observer&&) noexcept = delete;
 	};
 }

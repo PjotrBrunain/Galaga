@@ -1,7 +1,5 @@
 #include "MiniginPCH.h"
 #include "GameObject.h"
-#include "ResourceManager.h"
-#include "Renderer.h"
 #include "algorithm"
 
 StreamEngine::Transform& StreamEngine::GameObject::GetTransform()

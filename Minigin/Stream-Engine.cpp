@@ -63,7 +63,7 @@ void StreamEngine::Streamgin::Run(const std::function<void()>& loadFunction, con
 	LoadGame(loadFunction);
 
 	{
-		auto& renderer = Renderer::GetInstance();
+		const auto& renderer = Renderer::GetInstance();
 		auto& sceneManager = SceneManager::GetInstance();
 		auto& input = InputManager::GetInstance();
 

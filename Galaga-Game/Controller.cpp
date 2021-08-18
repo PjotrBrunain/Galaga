@@ -11,11 +11,6 @@ Controller::Controller(std::weak_ptr<StreamEngine::GameObject> pOwningGameObject
 {
 }
 
-void Controller::Update(float deltaTime)
-{
-	BaseComponent::Update(deltaTime);
-}
-
 void Controller::MoveRight() const
 {
 	glm::vec3 currentPos{ m_pOwningGameObject.lock()->GetTransform().GetPosition() };

@@ -186,6 +186,7 @@
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="SpriteTextureComponent.cpp" />
+    <ClCompile Include="ZakoBehavior.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enums.h" />
@@ -198,6 +199,8 @@
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="SpriteTextureComponent.h" />
     <ClInclude Include="Structs.h" />
+    <ClInclude Include="ZakoBehavior.h" />
+    <ClInclude Include="ZakoPrefab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

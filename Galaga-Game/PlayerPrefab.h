@@ -17,9 +17,7 @@ inline std::shared_ptr<Controller> CreatePlayer(const std::shared_ptr<StreamEngi
 	const std::shared_ptr<SpriteTextureComponent> spriteComponent{ std::make_shared<SpriteTextureComponent>("Arcade - Galaga - General Sprites.png", playerObject) };
 
 	if (playerNumber == 0)
-	{
 		spriteComponent->AddSrcRect(Rect{ 1,109,16,16 });
-	}
 	else if (playerNumber == 1)
 	{
 		spriteComponent->AddSrcRect(Rect{ 19,109,16,16 });
@@ -35,8 +33,8 @@ inline std::shared_ptr<Controller> CreatePlayer(const std::shared_ptr<StreamEngi
 	pScene->Add(playerObject);
 
 	//PlayerCommands
-	const std::shared_ptr<MoveRight> pMoveRightCommand{ std::make_shared<MoveRight>(playerObject) };
-	const std::shared_ptr<MoveLeft> pMoveLeftCommand{ std::make_shared<MoveLeft>(playerObject) };
+	const std::shared_ptr<MoveRight> pMoveRightCommand{ std::make_shared<MoveRight>(playerController) };
+	const std::shared_ptr<MoveLeft> pMoveLeftCommand{ std::make_shared<MoveLeft>(playerController) };
 	if (playerNumber == 0)
 	{
 		const StreamEngine::FlexibleCommand flexiMoveRight{ pMoveRightCommand, false, XINPUT_GAMEPAD_DPAD_RIGHT, 0, SDLK_d };

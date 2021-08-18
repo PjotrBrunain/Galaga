@@ -17,6 +17,15 @@
     <Filter Include="Base\Commands">
       <UniqueIdentifier>{0cbcc64c-5c0b-4526-b25b-80477213c16c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{1d45c831-3038-495b-88c2-f856d4346476}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\EnemyBehavior">
+      <UniqueIdentifier>{6e7c0370-0a01-45f3-bff7-d3353e948863}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\EnemyPrefabs">
+      <UniqueIdentifier>{b6ef9093-8c80-4e69-9355-89d697035db6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Galaga-Game.cpp">
@@ -39,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="Controller.cpp">
       <Filter>Base\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ZakoBehavior.cpp">
+      <Filter>Enemies\EnemyBehavior</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="Controller.h">
       <Filter>Base\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ZakoPrefab.h">
+      <Filter>Enemies\EnemyPrefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="ZakoBehavior.h">
+      <Filter>Enemies\EnemyBehavior</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

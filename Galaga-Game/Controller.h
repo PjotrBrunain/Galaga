@@ -7,8 +7,6 @@ public:
 	explicit Controller(std::weak_ptr<StreamEngine::GameObject> pOwningGameObject);
 	virtual ~Controller() = default;
 
-	void Update(float deltaTime) override;
-
 	void MoveRight() const;
 	void MoveLeft() const;
 	void MoveUp() const;

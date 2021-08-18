@@ -6,7 +6,7 @@
 #include "Renderer.h"
 #include "ResourceManager.h"
 
-std::map<std::string, std::shared_ptr<StreamEngine::Texture2D>> SpriteTextureComponent::m_pTextures{};
+std::map<std::string, std::shared_ptr<StreamEngine::Texture2D>> SpriteTextureComponent::m_pTextures{};  // NOLINT(clang-diagnostic-exit-time-destructors)
 
 SpriteTextureComponent::SpriteTextureComponent(const std::string& texturePath,
                                                const std::weak_ptr<StreamEngine::GameObject>& pOwningGameObject)

@@ -12,7 +12,7 @@ namespace StreamEngine
 	public:
 		TextComponent(std::weak_ptr<GameObject> pOwningGameObject);
 		TextComponent(const std::string& fontPath, std::weak_ptr<GameObject> pOwningGameObject);
-		virtual ~TextComponent();
+		virtual ~TextComponent() = default;
 
 		void Render() const override;
 		void Update(float deltaTime) override;
@@ -31,10 +31,10 @@ namespace StreamEngine
 	private:
 		std::shared_ptr<Font> m_pFont;
 		std::shared_ptr<Texture2D> m_pTexture;
-		SDL_Color m_Color;
-		std::shared_ptr<std::string> m_pText;
-		int m_Size;
-		std::string m_FontPath;
+		SDL_Color m_Color{};
+		std::shared_ptr<std::string> m_pText{};
+		int m_Size{};
+		std::string m_FontPath{};
 
 		bool m_UpdateText;
 		

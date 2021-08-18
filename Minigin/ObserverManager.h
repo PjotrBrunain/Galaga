@@ -10,7 +10,6 @@ namespace StreamEngine
 	class ObserverManager final : public Singleton<ObserverManager>
 	{
 	public:
-		~ObserverManager() = default;
 		void AddObserver(const std::shared_ptr<Observer>& observer);
 
 	private:

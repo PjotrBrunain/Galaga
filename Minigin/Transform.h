@@ -12,7 +12,7 @@ namespace StreamEngine
 	{
 	public:
 		Transform(std::weak_ptr<GameObject> pOwningGameObject);
-		virtual ~Transform();
+		virtual ~Transform() = default;
 
 		Transform(const Transform&) = delete;
 		Transform(Transform&&) noexcept = delete;

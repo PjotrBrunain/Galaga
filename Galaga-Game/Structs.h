@@ -22,9 +22,12 @@ struct OffsetTileCoords
 	int row;
 };
 
-struct CubeTileCoords
+struct Point
 {
+	bool operator!=(const Point& rhs) const
+	{
+		return x != rhs.x || y != rhs.y;
+	}
 	int x;
 	int y;
-	int z;
 };

@@ -9,7 +9,7 @@ namespace StreamEngine
 	{
 	public:
 		BaseComponent(bool isVisual, std::weak_ptr<GameObject> pOwningGameObject);
-		virtual ~BaseComponent();
+		virtual ~BaseComponent() = default;
 
 #pragma warning (push)
 #pragma warning (disable:4100)

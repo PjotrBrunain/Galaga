@@ -17,7 +17,7 @@ void Scene::Add(const std::shared_ptr<GameObject>& object)
 
 void Scene::Update(float deltaTime)
 {
-	for(auto& object : m_Objects)
+	for(const auto& object : m_Objects)
 	{
 		object->Update(deltaTime);
 	}
@@ -25,7 +25,7 @@ void Scene::Update(float deltaTime)
 
 void StreamEngine::Scene::FixedUpdate(float deltaTime)
 {
-	for (std::shared_ptr<GameObject>& object : m_Objects)
+	for (const std::shared_ptr<GameObject>& object : m_Objects)
 	{
 		object->FixedUpdate(deltaTime);
 	}
@@ -33,7 +33,7 @@ void StreamEngine::Scene::FixedUpdate(float deltaTime)
 
 void StreamEngine::Scene::LateUpdate(float deltaTime)
 {
-	for (std::shared_ptr<GameObject>& object : m_Objects)
+	for (const std::shared_ptr<GameObject>& object : m_Objects)
 	{
 		object->LateUpdate(deltaTime);
 	}
