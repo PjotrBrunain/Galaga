@@ -11,3 +11,8 @@ bool StreamEngine::BaseComponent::IsVisual() const
 {
 	return m_IsVisual;
 }
+
+std::shared_ptr<StreamEngine::GameObject> StreamEngine::BaseComponent::GetOwner() const
+{
+	return m_pOwningGameObject.lock();
+}

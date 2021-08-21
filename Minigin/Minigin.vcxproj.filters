@@ -79,6 +79,12 @@
     <ClInclude Include="Singleton.h">
       <Filter>BaseClasses</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextureComponent.cpp">
@@ -131,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>BaseClasses</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

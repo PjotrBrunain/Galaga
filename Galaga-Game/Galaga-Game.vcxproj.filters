@@ -49,8 +49,17 @@
     <ClCompile Include="Controller.cpp">
       <Filter>Base\Components</Filter>
     </ClCompile>
-    <ClCompile Include="ZakoBehavior.cpp">
+    <ClCompile Include="BasicEnemyBehavior.cpp">
       <Filter>Enemies\EnemyBehavior</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBehavior.cpp">
+      <Filter>Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ScoreObserver.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SubjectComponent.cpp">
+      <Filter>Base\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,8 +96,20 @@
     <ClInclude Include="ZakoPrefab.h">
       <Filter>Enemies\EnemyPrefabs</Filter>
     </ClInclude>
-    <ClInclude Include="ZakoBehavior.h">
+    <ClInclude Include="BasicEnemyBehavior.h">
       <Filter>Enemies\EnemyBehavior</Filter>
+    </ClInclude>
+    <ClInclude Include="GoeiPrefab.h">
+      <Filter>Enemies\EnemyPrefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerBehavior.h">
+      <Filter>Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ScoreObserver.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectComponent.h">
+      <Filter>Base\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

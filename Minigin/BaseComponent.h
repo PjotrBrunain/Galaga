@@ -20,6 +20,8 @@ namespace StreamEngine
 		virtual void Render() const {};
 
 		bool IsVisual() const;
+
+		std::shared_ptr<GameObject> GetOwner() const;
 		
 		BaseComponent(const BaseComponent&) = delete;
 		BaseComponent(BaseComponent&&) noexcept = delete;

@@ -7,7 +7,7 @@ namespace StreamEngine
 {
 	class Texture2D;
 	class BaseComponent;
-	class GameObject : public std::enable_shared_from_this<GameObject>
+	class GameObject final : public std::enable_shared_from_this<GameObject>
 	{
 	public:
 		virtual void Update(float deltaTime);

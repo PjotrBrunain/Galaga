@@ -6,25 +6,22 @@
 #include "GameObject.h"
 #include "SpriteTextureComponent.h"
 #include "BasicEnemyBehavior.h"
-#include "CollisionComponent.h"
 #include "GameInstance.h"
-#include "PlayerBehavior.h"
 
-inline std::shared_ptr<Controller> CreateZako(const std::shared_ptr<StreamEngine::Scene>& pScene, const glm::vec3& startingPos, float size)
+inline std::shared_ptr<Controller> CreateGoei(const std::shared_ptr<StreamEngine::Scene>& pScene, const glm::vec3& startingPos, float size)
 {
 	//Enemy
 	std::shared_ptr<StreamEngine::GameObject> enemyObject{ std::make_shared<StreamEngine::GameObject>() };
-	enemyObject->SetName("Zako");
 	std::shared_ptr<Controller> enemyController{ std::make_shared<Controller>(enemyObject) };
 	enemyObject->AddComponent(enemyController);
 	const std::shared_ptr<SpriteTextureComponent> spriteComponent{ std::make_shared<SpriteTextureComponent>("Arcade - Galaga - General Sprites.png", enemyObject) };
-	spriteComponent->AddSrcRect(Rect{ 91,109,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,91,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,73,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,55,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,37,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,19,16,16 });
-	spriteComponent->AddSrcRect(Rect{ 91,1,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73, 109, 16, 16 });
+	spriteComponent->AddSrcRect(Rect{ 73,91,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73,73,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73,55,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73,37,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73,19,16,16 });
+	spriteComponent->AddSrcRect(Rect{ 73,1,16,16 });
 	spriteComponent->SetSrcRectIdx(0);
 	enemyObject->AddComponent(spriteComponent);
 
@@ -33,32 +30,17 @@ inline std::shared_ptr<Controller> CreateZako(const std::shared_ptr<StreamEngine
 	enemyObject->GetTransform().SetHeight(size);
 
 	const auto& gameInstance{ GameInstance::GetInstance() };
-	std::vector<Point> startingBeziers{Point{ int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), gameInstance.GetScreenMinY() },
+	std::vector<Point> startingBeziers{ Point{ int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), gameInstance.GetScreenMinY() },
 				Point{ int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), int(0.3f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY() },
 				Point{ gameInstance.GetScreenMinX(), int(0.6f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY() },
 				Point{ int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), int(0.6f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY() },
 				Point{int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), int(0.6f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY()},
 				Point{gameInstance.GetScreenMinX() + gameInstance.GetScreenWidth(), int(0.6f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY()},
 				Point{int(0.5f * float(gameInstance.GetScreenWidth())) + gameInstance.GetScreenMinX(), int(0.3f * float(gameInstance.GetScreenHeight())) + gameInstance.GetScreenMinY()},
-				Point{int(startingPos.x), int(startingPos.y)}};
+				Point{int(startingPos.x), int(startingPos.y)} };
 
-	const std::shared_ptr<BasicEnemyBehavior> zakoBehavior{ std::make_shared<BasicEnemyBehavior>(enemyObject, enemyController, startingBeziers) };
-	enemyObject->AddComponent(zakoBehavior);
-
-	std::shared_ptr<StreamEngine::CollisionComponent> collisionComponent{ std::make_shared<StreamEngine::CollisionComponent>(enemyObject) };
-	collisionComponent->SetOverlapFunction([zakoBehavior](const std::shared_ptr<StreamEngine::GameObject>& other)
-		{
-			if (other->GetName() == "Player")
-			{
-				zakoBehavior->Die();
-				other->GetComponent<PlayerBehavior>()->Die();
-			}
-			else if (other->GetName() == "Bullet")
-			{
-				zakoBehavior->Die();
-
-			}
-		});
+	const std::shared_ptr<BasicEnemyBehavior> goeiBehavior{ std::make_shared<BasicEnemyBehavior>(enemyObject, enemyController, startingBeziers) };
+	enemyObject->AddComponent(goeiBehavior);
 
 	pScene->Add(enemyObject);
 	return enemyController;

@@ -13,3 +13,13 @@ enum class EnemyState
 	Bombing,
 	Stationary
 };
+
+enum class PointEvent
+{
+	Zako = 0,
+	ZakoBomb = 1,
+	Goei = 2,
+	GoeiBomb = 3,
+	Galaga = 4,
+	GalagaBomb = 5
+};

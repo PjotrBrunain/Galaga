@@ -19,31 +19,6 @@ inline void TestLoadFunction()
 {
 	const auto& scene = StreamEngine::SceneManager::GetInstance().CreateScene("Demo");
 
-	//std::shared_ptr<StreamEngine::GameObject> background{ std::make_shared<StreamEngine::GameObject>() };
-
-	//background->AddComponent(std::make_shared<StreamEngine::TextureComponent>("background.jpg", background));
-
-	//scene->Add(background);
-
-	//std::shared_ptr<StreamEngine::GameObject> logo{ std::make_shared<StreamEngine::GameObject>() };
-
-	//logo->AddComponent(std::make_shared<StreamEngine::TextureComponent>("logo.png", logo));
-	//logo->GetTransform().SetPosition(216, 180, 0);
-
-	//scene->Add(logo);
-
-	//std::shared_ptr<StreamEngine::GameObject> text{ std::make_shared<StreamEngine::GameObject>() };
-
-	//text->AddComponent(std::make_shared<StreamEngine::TextComponent>("Lingua.otf", text));
-
-	//text->GetTransform().SetPosition(80, 20, 0);
-
-	//text->GetComponent<StreamEngine::TextComponent>()->SetText("Programming 4 Assignment");
-
-	//text->GetComponent<StreamEngine::TextComponent>()->SetSize(36);
-
-	//scene->Add(text);
-
 
 	std::shared_ptr<StreamEngine::GameObject> fpsCounter{ std::make_shared<StreamEngine::GameObject>() };
 
@@ -69,7 +44,63 @@ inline void TestLoadFunction()
 		1},
 		playerSize);
 
-	CreateZako(scene, glm::vec3{ 0,0,1 }, 32);
+	CreateZako(scene, glm::vec3{ 0.4f * GameInstance::GetInstance().GetScreenWidth() + GameInstance::GetInstance().GetScreenMinX(),0.2f* GameInstance::GetInstance().GetScreenHeight() + GameInstance::GetInstance().GetScreenMinY(),1 }, 48);
 
 	StreamEngine::SceneManager::GetInstance().SetActiveScene("Demo");
+}
+
+inline void ReadLevelFromFile(const std::string& filePath, const std::shared_ptr<StreamEngine::Scene>& scene)
+{
+	std::ifstream fileStream{ filePath };
+	std::string line{};
+	if (fileStream)
+	{
+		do
+		{
+			std::getline(fileStream, line);
+			if (line == "{")
+			{
+				std::getline(fileStream, line);
+				if (line.find("zakos") != std::string::npos)
+				{
+					do
+					{
+						std::getline(fileStream, line);
+						std::stringstream ss{ line };
+						if (line.find("{") != std::string::npos)
+						{
+							float x{};
+							float y{};
+							float size{};
+							do
+							{
+								if (line.find("x") != std::string::npos)
+								{
+									std::getline(ss, line, ':');
+									std::getline(ss, line);
+									x = std::stof(line);
+								}
+								else if (line.find("y") != std::string::npos)
+								{
+									std::getline(ss, line, ':');
+									std::getline(ss, line);
+									y = std::stof(line);
+								}
+								else if (line.find("size") != std::string::npos)
+								{
+									std::getline(ss, line, ':');
+									std::getline(ss, line);
+									size = std::stof(line);
+								}
+							}
+							while (line.find("}") == std::string::npos);
+							CreateZako(scene, glm::vec3{ x,y,1 }, size);
+						}
+					}
+					while (line.find("]") == std::string::npos);
+				}
+			}
+		}
+		while (!fileStream.eof());
+	}
 }

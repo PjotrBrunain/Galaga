@@ -16,9 +16,16 @@ public:
 	void SetScreenMinY(int screenMin);
 	int GetScreenMinY() const;
 
+	void AddPoints(int points);
+	void SubtractPoints(int points);
+
+	int GetPoints() const;
+
 private:
 	int m_ScreenWidth{};
 	int m_ScreenHeight{};
 	int m_ScreenMinX{};
 	int m_ScreenMinY{};
+
+	int m_Points{};
 };

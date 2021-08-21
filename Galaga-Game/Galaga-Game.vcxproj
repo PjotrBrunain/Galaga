@@ -184,22 +184,29 @@
     <ClCompile Include="MoveLeft.cpp" />
     <ClCompile Include="MoveRight.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="PlayerBehavior.cpp" />
+    <ClCompile Include="ScoreObserver.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="SpriteTextureComponent.cpp" />
-    <ClCompile Include="ZakoBehavior.cpp" />
+    <ClCompile Include="BasicEnemyBehavior.cpp" />
+    <ClCompile Include="SubjectComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enums.h" />
     <ClInclude Include="GameInstance.h" />
+    <ClInclude Include="GoeiPrefab.h" />
     <ClInclude Include="LoadFunction.h" />
     <ClInclude Include="MoveLeft.h" />
     <ClInclude Include="MoveRight.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="PlayerBehavior.h" />
     <ClInclude Include="PlayerPrefab.h" />
+    <ClInclude Include="ScoreObserver.h" />
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="SpriteTextureComponent.h" />
     <ClInclude Include="Structs.h" />
-    <ClInclude Include="ZakoBehavior.h" />
+    <ClInclude Include="BasicEnemyBehavior.h" />
+    <ClInclude Include="SubjectComponent.h" />
     <ClInclude Include="ZakoPrefab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

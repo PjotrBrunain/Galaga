@@ -39,3 +39,18 @@ int GameInstance::GetScreenMinY() const
 {
 	return m_ScreenMinY;
 }
+
+void GameInstance::AddPoints(int points)
+{
+	m_Points += points;
+}
+
+void GameInstance::SubtractPoints(int points)
+{
+	m_Points -= points;
+}
+
+int GameInstance::GetPoints() const
+{
+	return m_Points;
+}
