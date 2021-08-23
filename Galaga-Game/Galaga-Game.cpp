@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #if _DEBUG
 // ReSharper disable once CppUnusedIncludeDirective
 #include <vld.h>
@@ -11,10 +12,12 @@
 int main(int, char*[])
 {
     constexpr int screenHeight{ 760 };
-    constexpr int screenWidth{ 760 };
+    constexpr int screenWidth{ 900 };
+    constexpr int gameHeight{ 760 };
+    constexpr int gameWidth{ 760 };
     StreamEngine::Streamgin engine{};
-    GameInstance::GetInstance().SetScreenHeight(screenHeight);
-    GameInstance::GetInstance().SetScreenWidth(screenWidth);
-    engine.Run(TestLoadFunction, screenWidth, screenHeight);
+    GameInstance::GetInstance().SetScreenHeight(gameHeight);
+    GameInstance::GetInstance().SetScreenWidth(gameWidth);
+    engine.Run(LoadGalagaFunction, screenWidth, screenHeight);
     return 0;
 }

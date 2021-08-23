@@ -9,9 +9,9 @@ StreamEngine::Transform& StreamEngine::GameObject::GetTransform()
 
 void StreamEngine::GameObject::Render()
 {
-	if (m_IsVisual)
+	if (m_IsVisual && m_IsActive)
 	{
-		std::for_each(m_pComponents.begin(), m_pComponents.end(), [](std::shared_ptr<BaseComponent> pComponent) {if (pComponent->IsVisual()) pComponent->Render(); });
+		std::for_each(m_pComponents.begin(), m_pComponents.end(), [](std::shared_ptr<BaseComponent> pComponent) {if (pComponent != nullptr && pComponent->IsVisual()) pComponent->Render(); });
 	}
 }
 
@@ -45,6 +45,26 @@ void StreamEngine::GameObject::SetIsVisual(bool isVisual)
 	m_IsVisual = isVisual;
 }
 
+void StreamEngine::GameObject::SetIsActive(bool isActive)
+{
+	m_IsActive = isActive;
+}
+
+bool StreamEngine::GameObject::GetIsActive() const
+{
+	return m_IsActive;
+}
+
+void StreamEngine::GameObject::SetToRemove(bool toRemove)
+{
+	m_ToRemove = toRemove;
+}
+
+bool StreamEngine::GameObject::GetToRemove() const
+{
+	return m_ToRemove;
+}
+
 StreamEngine::GameObject::GameObject(std::string name)
 	:m_Name(name)
 {
@@ -54,17 +74,26 @@ StreamEngine::GameObject::~GameObject() = default;
 
 void StreamEngine::GameObject::Update(float deltaTime)
 {
-	std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) {pComponent->Update(deltaTime); });
+	if (m_IsActive)
+	{
+		std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) { if (pComponent != nullptr) pComponent->Update(deltaTime); });
+	}
 }
 
 void StreamEngine::GameObject::FixedUpdate(float deltaTime)
 {
-	std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) {pComponent->FixedUpdate(deltaTime); });
+	if (m_IsActive)
+	{
+		std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) {if (pComponent != nullptr) pComponent->FixedUpdate(deltaTime); });
+	}
 }
 
 void StreamEngine::GameObject::LateUpdate(float deltaTime)
 {
-	std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) {pComponent->LateUpdate(deltaTime); });
+	if (m_IsActive)
+	{
+		std::for_each(m_pComponents.begin(), m_pComponents.end(), [deltaTime](std::shared_ptr<BaseComponent> pComponent) {if (pComponent != nullptr) pComponent->LateUpdate(deltaTime); });
+	}
 }
 
 void StreamEngine::GameObject::AddComponent(const std::shared_ptr<BaseComponent> pComponent)

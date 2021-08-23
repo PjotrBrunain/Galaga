@@ -44,6 +44,13 @@ namespace StreamEngine
 		void SetOwner(const std::weak_ptr<GameObject> owner);
 		void SetIsVisual(bool isVisual);
 
+		void SetIsActive(bool isActive);
+		bool GetIsActive() const;
+
+		void SetToRemove(bool toRemove);
+
+		bool GetToRemove() const;
+
 		GameObject() = default;
 		GameObject(std::string name);
 		virtual ~GameObject();
@@ -56,6 +63,8 @@ namespace StreamEngine
 		std::vector<std::shared_ptr<BaseComponent>> m_pComponents{};
 		std::vector<std::shared_ptr<GameObject>> m_pChildObjects{};
 		bool m_IsVisual{};
+		bool m_IsActive{true};
+		bool m_ToRemove{};
 		Transform m_Transform{ weak_from_this() };
 
 		std::string m_Name{};

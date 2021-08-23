@@ -1,16 +1,17 @@
+#include "stdafx.h"
 #include "MoveLeft.h"
 
 #include <utility>
 
-#include "Controller.h"
+#include "PlayerBehavior.h"
 #include "GameObject.h"
 
-MoveLeft::MoveLeft(std::shared_ptr<Controller> pActingObjectController)
+MoveLeft::MoveLeft(std::weak_ptr<PlayerBehavior> pActingObjectController)
 	:m_pActingObjectController(std::move(pActingObjectController))
 {
 }
 
 void MoveLeft::Execute()
 {
-	m_pActingObjectController->MoveLeft();
+	m_pActingObjectController.lock()->MoveLeft();
 }

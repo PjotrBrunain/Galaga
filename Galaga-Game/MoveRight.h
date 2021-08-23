@@ -2,15 +2,15 @@
 #include "Command.h"
 #include <memory>
 
-class Controller;
+class PlayerBehavior;
 
 class MoveRight final : public StreamEngine::Command
 {
 public:
-	explicit MoveRight(std::shared_ptr<Controller> pActingObjectController);
+	explicit MoveRight(std::weak_ptr<PlayerBehavior> pActingObjectController);
 
 	void Execute() override;
 
 private:
-	std::shared_ptr<Controller> m_pActingObjectController;
+	std::weak_ptr<PlayerBehavior> m_pActingObjectController;
 };

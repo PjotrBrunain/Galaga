@@ -1,7 +1,7 @@
 #pragma once
 #include "Observer.h"
 
-class ScoreObserver : StreamEngine::Observer
+class ScoreObserver final : public StreamEngine::Observer
 {
 public:
 

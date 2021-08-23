@@ -5,20 +5,26 @@
 
 void StreamEngine::CollisionManager::CheckCollisions(const std::shared_ptr<CollisionComponent>& currentComponent)
 {
-	for (const std::shared_ptr<CollisionComponent>& pCollisionComponent : m_pCollisionComponents)
+	for (const std::weak_ptr<CollisionComponent>& weakCollisionComponent : m_pCollisionComponents)
 	{
-		if (pCollisionComponent != currentComponent)
+		if (auto pCollisionComponent = weakCollisionComponent.lock())
 		{
-			if (IsOverlapping(currentComponent, pCollisionComponent))
+			if (pCollisionComponent->GetOwner()->GetIsActive())
 			{
-				pCollisionComponent->RunOverlapFunction(currentComponent->GetOwner());
-				currentComponent->RunOverlapFunction(pCollisionComponent->GetOwner());
+				if (pCollisionComponent != currentComponent)
+				{
+					if (IsOverlapping(currentComponent, pCollisionComponent))
+					{
+						pCollisionComponent->RunOverlapFunction(currentComponent->GetOwner());
+						currentComponent->RunOverlapFunction(pCollisionComponent->GetOwner());
+					}
+				}
 			}
 		}
 	}
 }
 
-void StreamEngine::CollisionManager::AddCollisionComponent(const std::shared_ptr<CollisionComponent>& pComponent)
+void StreamEngine::CollisionManager::AddCollisionComponent(const std::weak_ptr<CollisionComponent>& pComponent)
 {
 	m_pCollisionComponents.push_back(pComponent);
 }

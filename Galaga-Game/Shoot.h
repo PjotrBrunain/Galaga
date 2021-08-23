@@ -2,18 +2,15 @@
 #include "Command.h"
 #include <memory>
 
-namespace StreamEngine
-{
-	class GameObject;
-}
+class PlayerBehavior;
 
 class Shoot final : public StreamEngine::Command
 {
 public:
-	explicit Shoot(std::shared_ptr<StreamEngine::GameObject> pActingObject);
+	explicit Shoot(std::weak_ptr<PlayerBehavior> pActingBehavior);
 
 	void Execute() override;
 
 private:
-	std::shared_ptr<StreamEngine::GameObject> m_pActingObject;
+	std::weak_ptr<PlayerBehavior> m_pActingBehavior;
 };

@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "SubjectComponent.h"
 #include "Observer.h"
 
@@ -6,12 +7,12 @@ SubjectComponent::SubjectComponent(const std::weak_ptr<StreamEngine::GameObject>
 {
 }
 
-void SubjectComponent::AddObserver(const std::shared_ptr<StreamEngine::Observer> pObserver)
+void SubjectComponent::AddObserver(const std::shared_ptr<StreamEngine::Observer>& pObserver)
 {
 	m_pObservers.push_back(pObserver);
 }
 
-void SubjectComponent::RemoveObserver(const std::shared_ptr<StreamEngine::Observer> pObserver)
+void SubjectComponent::RemoveObserver(const std::shared_ptr<StreamEngine::Observer>& pObserver)
 {
 	auto it{ std::find(m_pObservers.begin(), m_pObservers.end(), pObserver) };
 	if (it == m_pObservers.end())

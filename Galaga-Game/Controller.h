@@ -1,6 +1,8 @@
 #pragma once
 #include "BaseComponent.h"
 
+enum class Shooter;
+
 class Controller final : public StreamEngine::BaseComponent
 {
 public:
@@ -11,6 +13,7 @@ public:
 	void MoveLeft() const;
 	void MoveUp() const;
 	void MoveDown() const;
+	void Shoot(Shooter shooter) const;
 
 	Controller(const Controller&) = delete;
 	Controller(Controller&&) noexcept = delete;

@@ -11,7 +11,7 @@ class Controller;
 class BasicEnemyBehavior final : public StreamEngine::BaseComponent
 {
 public:
-	explicit BasicEnemyBehavior(std::weak_ptr<StreamEngine::GameObject> pOwningGameObject, std::shared_ptr<Controller> pController, const std::vector<Point>& startingBezierPoints);
+	explicit BasicEnemyBehavior(std::weak_ptr<StreamEngine::GameObject> pOwningGameObject, std::weak_ptr<Controller> pController, const std::vector<Point>& startingBezierPoints, const EnemyType& enemyType, float startDelay);
 	virtual ~BasicEnemyBehavior() = default;
 
 	void Update(float deltaTime) override;
@@ -23,7 +23,7 @@ public:
 	BasicEnemyBehavior& operator=(const BasicEnemyBehavior&) = delete;
 	BasicEnemyBehavior& operator=(BasicEnemyBehavior&&) noexcept = delete;
 private:
-	std::shared_ptr<Controller> m_pZakoController;
+	std::weak_ptr<Controller> m_pController;
 
 	std::deque<Point> m_StartingPath;
 	std::vector<Point> m_BombingPath;
@@ -34,10 +34,12 @@ private:
 
 	const float m_Precision;
 
-	void CalculateBezierPath(const std::vector<Point>& bezierPoints, std::deque<Point>& pointContainer);
-	void CalculateBezierPath(const std::vector<Point>& bezierPoints, std::vector<Point>& pointContainer);
+	void CalculateBezierPath(const std::vector<Point>& bezierPoints, std::deque<Point>& pointContainer) const;
+	void CalculateBezierPath(const std::vector<Point>& bezierPoints, std::vector<Point>& pointContainer) const;
 	static int GetPoint(int n1, int n2, float perc);
 	EnemyState m_EnemyState;
+	EnemyType m_EnemyType;
 
 	bool m_HasDied;
+	float m_StartDelay;
 };

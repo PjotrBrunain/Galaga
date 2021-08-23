@@ -23,7 +23,10 @@
     <Filter Include="Enemies\EnemyBehavior">
       <UniqueIdentifier>{6e7c0370-0a01-45f3-bff7-d3353e948863}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Enemies\EnemyPrefabs">
+    <Filter Include="Prefabs">
+      <UniqueIdentifier>{2e31bb72-ff22-474f-a317-6623821ecd12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prefabs\EnemyPrefabs">
       <UniqueIdentifier>{b6ef9093-8c80-4e69-9355-89d697035db6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -61,13 +64,28 @@
     <ClCompile Include="SubjectComponent.cpp">
       <Filter>Base\Components</Filter>
     </ClCompile>
+    <ClCompile Include="SelectComponent.cpp">
+      <Filter>Base\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectCommand.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectDownCommand.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectUpCommand.cpp">
+      <Filter>Base\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletBehavior.cpp">
+      <Filter>Base\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverBehavior.cpp">
+      <Filter>Base\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LoadFunction.h">
       <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerPrefab.h">
-      <Filter>Player</Filter>
     </ClInclude>
     <ClInclude Include="SpriteTextureComponent.h">
       <Filter>Base\Components</Filter>
@@ -93,14 +111,8 @@
     <ClInclude Include="Controller.h">
       <Filter>Base\Components</Filter>
     </ClInclude>
-    <ClInclude Include="ZakoPrefab.h">
-      <Filter>Enemies\EnemyPrefabs</Filter>
-    </ClInclude>
     <ClInclude Include="BasicEnemyBehavior.h">
       <Filter>Enemies\EnemyBehavior</Filter>
-    </ClInclude>
-    <ClInclude Include="GoeiPrefab.h">
-      <Filter>Enemies\EnemyPrefabs</Filter>
     </ClInclude>
     <ClInclude Include="PlayerBehavior.h">
       <Filter>Player</Filter>
@@ -109,6 +121,39 @@
       <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="SubjectComponent.h">
+      <Filter>Base\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPrefab.h">
+      <Filter>Prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="GoeiPrefab.h">
+      <Filter>Prefabs\EnemyPrefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="ZakoPrefab.h">
+      <Filter>Prefabs\EnemyPrefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPrefab.h">
+      <Filter>Prefabs</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectComponent.h">
+      <Filter>Base\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectCommand.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectDownCommand.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectUpCommand.h">
+      <Filter>Base\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBehavior.h">
+      <Filter>Base\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverBehavior.h">
       <Filter>Base\Components</Filter>
     </ClInclude>
   </ItemGroup>

@@ -12,10 +12,10 @@ namespace StreamEngine
 	public:
 		void CheckCollisions(const std::shared_ptr<CollisionComponent>& currentComponent);
 
-		void AddCollisionComponent(const std::shared_ptr<CollisionComponent>& pComponent);
+		void AddCollisionComponent(const std::weak_ptr<CollisionComponent>& pComponent);
 
 	private:
-		std::vector<std::shared_ptr<CollisionComponent>> m_pCollisionComponents{};
+		std::vector<std::weak_ptr<CollisionComponent>> m_pCollisionComponents{};
 
 		static bool IsOverlapping(const std::shared_ptr<CollisionComponent>& pCurrentComponent, const std::shared_ptr<CollisionComponent>& pCheckComponent);
 	};

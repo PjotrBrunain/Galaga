@@ -22,9 +22,14 @@ void StreamEngine::SceneManager::Render()
 	m_Scenes[m_CurrentScene]->Render();
 }
 
-StreamEngine::Scene& StreamEngine::SceneManager::GetScene(const std::string& name)
+std::shared_ptr<StreamEngine::Scene> StreamEngine::SceneManager::GetScene(const std::string& name)
 {
-	return *m_Scenes[name].get();
+	return m_Scenes[name];
+}
+
+void StreamEngine::SceneManager::RemoveScene(const std::string& name)
+{
+	m_Scenes.erase(name);
 }
 
 void StreamEngine::SceneManager::SetActiveScene(std::string name)
@@ -34,6 +39,11 @@ void StreamEngine::SceneManager::SetActiveScene(std::string name)
 		m_CurrentScene = name;
 		InputManager::GetInstance().SetCommands(m_Scenes[name]->GetCommands());
 	}
+}
+
+std::shared_ptr<StreamEngine::Scene> StreamEngine::SceneManager::GetActiveScene()
+{
+	return m_Scenes[m_CurrentScene];
 }
 
 std::shared_ptr<StreamEngine::Scene>& StreamEngine::SceneManager::CreateScene(const std::string& name)

@@ -10,42 +10,57 @@ Scene::Scene(const std::string& name) : m_Name(name) {}
 
 Scene::~Scene() = default;
 
-void Scene::Add(const std::shared_ptr<GameObject>& object)
+void Scene::Add(const std::shared_ptr<GameObject>&object)
 {
 	m_Objects.push_back(object);
 }
 
 void Scene::Update(float deltaTime)
 {
-	for(const auto& object : m_Objects)
+	for (const auto& object : m_Objects)
 	{
-		object->Update(deltaTime);
+		if (object != nullptr)
+		{
+			object->Update(deltaTime);
+		}
 	}
 }
 
-void StreamEngine::Scene::FixedUpdate(float deltaTime)
+void Scene::FixedUpdate(float deltaTime)
 {
 	for (const std::shared_ptr<GameObject>& object : m_Objects)
 	{
-		object->FixedUpdate(deltaTime);
+		if (object != nullptr)
+		{
+			object->FixedUpdate(deltaTime);
+		}
 	}
 }
 
-void StreamEngine::Scene::LateUpdate(float deltaTime)
+void Scene::LateUpdate(float deltaTime)
 {
 	for (const std::shared_ptr<GameObject>& object : m_Objects)
 	{
-		object->LateUpdate(deltaTime);
+		if (object != nullptr)
+		{
+			object->LateUpdate(deltaTime);
+		}
 	}
+
+	const auto it = std::remove_if(m_Objects.begin(), m_Objects.end(), [](std::shared_ptr<GameObject> object) { return object->GetToRemove(); });
+	m_Objects.erase(it, m_Objects.end());
 }
 
 void Scene::Render() const
 {
 	for (const auto& object : m_Objects)
 	{
-		if (object->IsVisual())
+		if (object != nullptr)
 		{
-			object->Render();
+			if (object->IsVisual())
+			{
+				object->Render();
+			}
 		}
 	}
 }
@@ -54,9 +69,12 @@ std::shared_ptr<GameObject> Scene::GetObjectByName(std::string name) const
 {
 	for (std::shared_ptr<GameObject> pObject : m_Objects)
 	{
-		if (pObject->GetName() == name)
+		if (pObject != nullptr)
 		{
-			return pObject;
+			if (pObject->GetName() == name)
+			{
+				return pObject;
+			}
 		}
 	}
 
@@ -68,7 +86,7 @@ const std::vector<FlexibleCommand>& Scene::GetCommands() const
 	return m_SceneCommands;
 }
 
-void Scene::AddCommand(const FlexibleCommand& command)
+void Scene::AddCommand(const FlexibleCommand & command)
 {
 	m_SceneCommands.push_back(command);
 }

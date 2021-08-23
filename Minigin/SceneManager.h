@@ -16,9 +16,11 @@ namespace StreamEngine
 		void LateUpdate(const float deltaTime);
 		void Render();
 
-		Scene& GetScene(const std::string& name);
+		std::shared_ptr<Scene> GetScene(const std::string& name);
+		void RemoveScene(const std::string& name);
 
 		void SetActiveScene(std::string name);
+		std::shared_ptr<Scene> GetActiveScene();
 	private:
 		friend class Singleton<SceneManager>;
 		SceneManager() = default;

@@ -14,8 +14,8 @@ public:
 	explicit SubjectComponent(const std::weak_ptr<StreamEngine::GameObject>& pOwningObject);
 	virtual ~SubjectComponent() = default;
 
-	void AddObserver(const std::shared_ptr<StreamEngine::Observer> pObserver);
-	void RemoveObserver(const std::shared_ptr<StreamEngine::Observer> pObserver);
+	void AddObserver(const std::shared_ptr<StreamEngine::Observer>& pObserver);
+	void RemoveObserver(const std::shared_ptr<StreamEngine::Observer>& pObserver);
 	void Notify(const std::shared_ptr<StreamEngine::GameObject>& pEntity, int event);
 
 	SubjectComponent(const SubjectComponent&) = delete;

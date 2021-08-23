@@ -1,8 +1,9 @@
+#include "stdafx.h"
 #include "ScoreObserver.h"
 #include "Enums.h"
 #include "GameInstance.h"
 
-void ScoreObserver::OnNotify(const std::shared_ptr<StreamEngine::GameObject>& pEntity, int event)
+void ScoreObserver::OnNotify(const std::shared_ptr<StreamEngine::GameObject>&, int event)
 {
 	int score{};
 

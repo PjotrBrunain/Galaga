@@ -102,6 +102,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)Minigin;C:\Program Files %28x86%29\Visual Leak Detector\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +124,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)Minigin;C:\Program Files %28x86%29\Visual Leak Detector\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -144,6 +146,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)Minigin;C:\Program Files %28x86%29\Visual Leak Detector\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,6 +168,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdParty\SDL2\include;$(SolutionDir)3rdParty\SDL2_ttf\include;$(SolutionDir)3rdParty\SDL2_image\include;$(SolutionDir)3rdParty\glm;$(SolutionDir)Minigin;C:\Program Files %28x86%29\Visual Leak Detector\include</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -179,21 +183,30 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BulletBehavior.cpp" />
     <ClCompile Include="Galaga-Game.cpp" />
     <ClCompile Include="GameInstance.cpp" />
+    <ClCompile Include="GameOverBehavior.cpp" />
     <ClCompile Include="MoveLeft.cpp" />
     <ClCompile Include="MoveRight.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="PlayerBehavior.cpp" />
     <ClCompile Include="ScoreObserver.cpp" />
+    <ClCompile Include="SelectCommand.cpp" />
+    <ClCompile Include="SelectComponent.cpp" />
+    <ClCompile Include="SelectDownCommand.cpp" />
+    <ClCompile Include="SelectUpCommand.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="SpriteTextureComponent.cpp" />
     <ClCompile Include="BasicEnemyBehavior.cpp" />
     <ClCompile Include="SubjectComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BulletBehavior.h" />
+    <ClInclude Include="BulletPrefab.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="GameInstance.h" />
+    <ClInclude Include="GameOverBehavior.h" />
     <ClInclude Include="GoeiPrefab.h" />
     <ClInclude Include="LoadFunction.h" />
     <ClInclude Include="MoveLeft.h" />
@@ -202,8 +215,13 @@
     <ClInclude Include="PlayerBehavior.h" />
     <ClInclude Include="PlayerPrefab.h" />
     <ClInclude Include="ScoreObserver.h" />
+    <ClInclude Include="SelectCommand.h" />
+    <ClInclude Include="SelectComponent.h" />
+    <ClInclude Include="SelectDownCommand.h" />
+    <ClInclude Include="SelectUpCommand.h" />
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="SpriteTextureComponent.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="BasicEnemyBehavior.h" />
     <ClInclude Include="SubjectComponent.h" />

@@ -24,6 +24,6 @@ namespace StreamEngine
 		TextureComponent& operator=(TextureComponent&&) noexcept = delete;
 
 	private:
-		std::shared_ptr<Texture2D> m_pTexture;
+		std::weak_ptr<Texture2D> m_pTexture;
 	};
 }

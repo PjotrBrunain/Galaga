@@ -1,11 +1,15 @@
+#include "stdafx.h"
 #include "Shoot.h"
 
-Shoot::Shoot(std::shared_ptr<StreamEngine::GameObject> pActingObject)
-	:m_pActingObject(std::move(pActingObject))
+#include "PlayerBehavior.h"
+#include "Enums.h"
+
+Shoot::Shoot(std::weak_ptr<PlayerBehavior> pActingBehavior)
+	:m_pActingBehavior(std::move(pActingBehavior))
 {
 }
 
 void Shoot::Execute()
 {
-
+	m_pActingBehavior.lock()->Shoot(Shooter::Player);
 }
